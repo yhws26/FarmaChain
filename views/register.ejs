@@ -1,0 +1,35 @@
+<% include _layouts/header %>
+
+<h1>Registrar</h1>
+
+<form method="post" action="/users/register">
+
+    <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" name="name" class="form-control" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+        <label>Correo</label>
+        <input type="text" name="email" class="form-control" placeholder="Email">
+    </div>
+    
+    <div class="form-group">
+        <label>Nombre de Usuario</label>
+        <input type="text" name="username" class="form-control" placeholder="Username">
+    </div>
+
+    <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" name="password" class="form-control"  placeholder="Password">
+    </div>
+    
+    <div class="form-group">
+        <label>Confirmar Contraseña</label>
+        <input type="password" name="password2" class="form-control"  placeholder="Confirm Password">
+    </div>
+
+    <button type="submit" class="btn btn-default">Registrar</button>
+</form>
+
+<% include _layouts/footer %>
