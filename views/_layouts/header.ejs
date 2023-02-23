@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><%= title %></title>
+        <link rel="icon" type="image/x-icon" href="/images/favicon2.ico">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
@@ -32,7 +33,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">FarmaChain</a>
+                    <a class="navbar-brand" href="/home">FarmaChain</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -45,6 +46,9 @@
                         <li><a href="/contacto">Contacto</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <% if (user && user.admin == 1) { %>
+                            <li><a href="/admin/pages">Admin</a></li>
+                        <% }%>
                         <li>
                             <a href="/cart/checkout"><i class="far fa-shopping-bag"></i>(
                                 <% if (typeof cart !== "undefined") { %>
@@ -54,15 +58,14 @@
                                 <% } %>
                             )</a>
                         </li>
+                        
                         <% if (user) { %>
-                        <li><a href="/users/logout">Hola, <%= user.username %> ! ( Cerrar Sesión)</a></li>
+                        <li><a href="/users/logout"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                            Hola, <%= user.username %> ! ( Cerrar Sesión)</a></li>
                         <% } else {%>
                         <li><a href="/users/register">Registrar</a></li>
                         <li><a href="/users/login">Iniciar Sesión</a></li>
                         <% } %>
-                        <% if (user && user.admin == 1) { %>
-                        <li><a href="/admin/pages">Admin</a></li>
-                        <% }%>
                         
                     </ul>
                 </div><!--/.nav-collapse -->

@@ -58,10 +58,10 @@ router.post('/add-product', function (req, res) {
 
     var imageFile = typeof req.files.image !== "undefined" ? req.files.image.name : "";
 
-    req.checkBody('title', 'Title must have a value.').notEmpty();
-    req.checkBody('desc', 'Description must have a value.').notEmpty();
-    req.checkBody('price', 'Price must have a value.').isDecimal();
-    req.checkBody('image', 'You must upload an image').isImage(imageFile);
+    req.checkBody('title', 'Titulo tiene que tener un valor.').notEmpty();
+    req.checkBody('desc', 'Descricion tiene que tener un valor').notEmpty();
+    req.checkBody('price', 'Precio tiene que tener un valor').isDecimal();
+    req.checkBody('image', 'Debes subir una foto').isImage(imageFile);
 
     var title = req.body.title;
     var slug = title.replace(/\s+/g, '-').toLowerCase();
@@ -84,7 +84,7 @@ router.post('/add-product', function (req, res) {
     } else {
         Product.findOne({slug: slug}, function (err, product) {
             if (product) {
-                req.flash('danger', 'Product title exists, choose another.');
+                req.flash('danger', 'Producto existente, escoja otro.');
                 Category.find(function (err, categories) {
                     res.render('admin/add_product', {
                         title: title,
@@ -131,7 +131,7 @@ router.post('/add-product', function (req, res) {
                         });
                     }
 
-                    req.flash('success', 'Product added!');
+                    req.flash('success', 'Producto añadido!');
                     res.redirect('/admin/products');
                 });
             }
@@ -194,10 +194,10 @@ router.post('/edit-product/:id', function (req, res) {
 
     var imageFile = typeof req.files.image !== "undefined" ? req.files.image.name : "";
 
-    req.checkBody('title', 'Title must have a value.').notEmpty();
-    req.checkBody('desc', 'Description must have a value.').notEmpty();
-    req.checkBody('price', 'Price must have a value.').isDecimal();
-    req.checkBody('image', 'You must upload an image').isImage(imageFile);
+    req.checkBody('title', 'Titulo tiene que tener un valor.').notEmpty();
+    req.checkBody('desc', 'Descricion tiene que tener un valor').notEmpty();
+    req.checkBody('price', 'Precio tiene que tener un valor').isDecimal();
+    req.checkBody('image', 'Debes subir una foto').isImage(imageFile);
 
     var title = req.body.title;
     var slug = title.replace(/\s+/g, '-').toLowerCase();
@@ -255,7 +255,7 @@ router.post('/edit-product/:id', function (req, res) {
 
                         }
 
-                        req.flash('success', 'Product edited!');
+                        req.flash('success', 'Producto editado!');
                         res.redirect('/admin/products/edit-product/' + id);
                     });
 
@@ -305,7 +305,7 @@ router.get('/delete-image/:image', isAdmin, function (req, res) {
                 if (err) {
                     console.log(err);
                 } else {
-                    req.flash('success', 'Image deleted!');
+                    req.flash('success', 'Imagen eliminado!');
                     res.redirect('/admin/products/edit-product/' + req.query.id);
                 }
             });
@@ -329,7 +329,7 @@ router.get('/delete-product/:id', isAdmin, function (req, res) {
                 console.log(err);
             });
             
-            req.flash('success', 'Product deleted!');
+            req.flash('success', 'Producto borrado!');
             res.redirect('/admin/products');
         }
     });

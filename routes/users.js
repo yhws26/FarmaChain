@@ -28,11 +28,11 @@ router.post('/register', function (req, res) {
     var password = req.body.password;
     var password2 = req.body.password2;
 
-    req.checkBody('name', 'Name is required!').notEmpty();
-    req.checkBody('email', 'Email is required!').isEmail();
-    req.checkBody('username', 'Username is required!').notEmpty();
-    req.checkBody('password', 'Password is required!').notEmpty();
-    req.checkBody('password2', 'Passwords do not match!').equals(password);
+    req.checkBody('name', 'Nombre es requerido!').notEmpty();
+    req.checkBody('email', 'Correo es requerido!').isEmail();
+    req.checkBody('username', 'Nombre de usuario es requerido!').notEmpty();
+    req.checkBody('password', 'Contraseña es requerida!').notEmpty();
+    req.checkBody('password2', 'Contraseña no coincide!').equals(password);
 
     var errors = req.validationErrors();
 
@@ -48,7 +48,7 @@ router.post('/register', function (req, res) {
                 console.log(err);
 
             if (user) {
-                req.flash('danger', 'Username exists, choose another!');
+                req.flash('danger', 'Nombre de usuario existente, escoja otro!');
                 res.redirect('/users/register');
             } else {
                 var user = new User({
@@ -70,7 +70,7 @@ router.post('/register', function (req, res) {
                             if (err) {
                                 console.log(err);
                             } else {
-                                req.flash('success', 'You are now registered!');
+                                req.flash('success', 'Ahora estas registrado!');
                                 res.redirect('/users/login')
                             }
                         });
@@ -101,7 +101,7 @@ router.get('/login', function (req, res) {
 router.post('/login', function (req, res, next) {
 
     passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: '/home',
         failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next);
@@ -115,7 +115,7 @@ router.get('/logout', function (req, res) {
 
     req.logout();
     
-    req.flash('success', 'You are logged out!');
+    req.flash('success', 'Saliste de sesión!');
     res.redirect('/users/login');
 
 });
