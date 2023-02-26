@@ -39,8 +39,8 @@ router.get('/add-page', isAdmin, function (req, res) {
  */
 router.post('/add-page', function (req, res) {
 
-    req.checkBody('title', 'Title must have a value.').notEmpty();
-    req.checkBody('content', 'Content must have a value.').notEmpty();
+    req.checkBody('title', 'Titulo debe tener un valor.').notEmpty();
+    req.checkBody('content', 'Contenido debe tener un valor.').notEmpty();
 
     var title = req.body.title;
     var slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
@@ -162,8 +162,8 @@ router.get('/edit-page/:id', isAdmin, function (req, res) {
  */
 router.post('/edit-page/:id', function (req, res) {
 
-    req.checkBody('title', 'Title must have a value.').notEmpty();
-    req.checkBody('content', 'Content must have a value.').notEmpty();
+    req.checkBody('title', 'Titulo debe tener un valor.').notEmpty();
+    req.checkBody('content', 'Contenido debe tener un valor.').notEmpty();
 
     var title = req.body.title;
     var slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();

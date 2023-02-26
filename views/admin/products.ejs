@@ -1,7 +1,7 @@
 <%- include('../_layouts/adminheader') %>
 
 <h2 class="page-title">Products</h2>
-<a href="/admin/products/add-product" class="btn btn-primary">Add a new product</a>
+<a href="/admin/products/add-product" class="btn btn-primary">Agrergar un nuevo producto</a>
 <br><br>
 
 <% if (count > 0) { %>
@@ -10,12 +10,12 @@
 
     <thead>
         <tr class="home">
-            <th>Product</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>Product Image</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Categoria</th>
+            <th>Producto Image</th>
+            <th>Editar</th>
+            <th>Borrar</th>
         </tr>
     </thead>
     <tbody>
@@ -32,14 +32,14 @@
                 <% }%>
             </td>
             <td><a href="/admin/products/edit-product/<%= product._id %>">Edit</a></td>
-            <td><a class="confirmDeletion" href="/admin/products/delete-product/<%= product._id %>">Delete</a></td>
+            <td><a class="confirmDeletion" href="/admin/products/delete-product/<%= product._id %>">Borrar</a></td>
         </tr>
         <% }); %>
     </tbody>
 </table>
 
 <% } else {%>
-<h3 class="text-center">There are no products.</h3>
+<h3 class="text-center">No hay productos!</h3>
 <% }%>
 
 <%- include('../_layouts/adminfooter') %>

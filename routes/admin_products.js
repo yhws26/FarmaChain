@@ -58,10 +58,10 @@ router.post('/add-product', function (req, res) {
 
     var imageFile = typeof req.files.image !== "undefined" ? req.files.image.name : "";
 
-    req.checkBody('title', 'Titulo tiene que tener un valor.').notEmpty();
-    req.checkBody('desc', 'Descricion tiene que tener un valor').notEmpty();
-    req.checkBody('price', 'Precio tiene que tener un valor').isDecimal();
-    req.checkBody('image', 'Debes subir una foto').isImage(imageFile);
+    req.checkBody('title', 'Titulo debe tener un valor.').notEmpty();
+    req.checkBody('desc', 'Descricion debe tener un valor').notEmpty();
+    req.checkBody('price', 'Precio debe tener un valor').isDecimal();
+    req.checkBody('image', 'Imagen debe subir una foto').isImage(imageFile);
 
     var title = req.body.title;
     var slug = title.replace(/\s+/g, '-').toLowerCase();
@@ -194,9 +194,9 @@ router.post('/edit-product/:id', function (req, res) {
 
     var imageFile = typeof req.files.image !== "undefined" ? req.files.image.name : "";
 
-    req.checkBody('title', 'Titulo tiene que tener un valor.').notEmpty();
-    req.checkBody('desc', 'Descricion tiene que tener un valor').notEmpty();
-    req.checkBody('price', 'Precio tiene que tener un valor').isDecimal();
+    req.checkBody('title', 'Titulo debe tener un valor.').notEmpty();
+    req.checkBody('desc', 'Descricion debe tener un valor').notEmpty();
+    req.checkBody('price', 'Precio debe tener un valor').isDecimal();
     req.checkBody('image', 'Debes subir una foto').isImage(imageFile);
 
     var title = req.body.title;

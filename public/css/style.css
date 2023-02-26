@@ -470,8 +470,9 @@ text-align: center;
 }
 
 #banner3 .banner-box {
-    background-image: url("img/banner/b7.jpg");
+    background-image: url("/images/home/h4.png");
     min-width: 30%;
+    width: 470px;
     height: 30vh;
     background-size: cover;
     background-position: center;
@@ -484,11 +485,11 @@ text-align: center;
 }
 
 #banner3 .banner-box2 {
-    background-image: url("img/banner/b4.jpg");
+    background-image: url("/images/home/h5.png");
 }
 
 #banner3 .banner-box3 {
-    background-image: url("img/banner/b18.jpg");
+    background-image: url("/images/home/h3.png");
 }
 
 #banner3 h2 {
@@ -996,10 +997,7 @@ table.alignmiddle td {
   
   html { font-family: 'Source Sans 3', sans-serif; }
   
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+ 
   
   button {
     border: none;

@@ -37,7 +37,7 @@ router.get('/add-category', isAdmin, function (req, res) {
  */
 router.post('/add-category', function (req, res) {
 
-    req.checkBody('title', 'Title must have a value.').notEmpty();
+    req.checkBody('title', 'Titulo debe tener un valor.').notEmpty();
 
     var title = req.body.title;
     var slug = title.replace(/\s+/g, '-').toLowerCase();
@@ -105,7 +105,7 @@ router.get('/edit-category/:id', isAdmin, function (req, res) {
  */
 router.post('/edit-category/:id', function (req, res) {
 
-    req.checkBody('title', 'Title must have a value.').notEmpty();
+    req.checkBody('title', 'Titulo debe tener un valor.').notEmpty();
 
     var title = req.body.title;
     var slug = title.replace(/\s+/g, '-').toLowerCase();
